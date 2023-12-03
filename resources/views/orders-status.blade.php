@@ -3,12 +3,12 @@
 @section('body')
 <div>
     <h1>
-        Lista wszystkich zamówień o statusie #{{ status }}
+        Lista wszystkich zamówień o statusie "{{ $status_id }}"
     </h1>
 </div>
 <div>
-    @if($orders === null)
-        <h3>Nie znaleziono produktów o podanych kryteriach</h3>
+    @if($orders == null)
+        <h3>Nie znaleziono zamówień o podanych kryteriach</h3>
     @else
         @foreach($orders as $order)
             <article>
@@ -22,9 +22,6 @@
                     <strong>
                         {{ $order->sum_total }}
                     </strong>
-                </p>
-                <p>
-                    Kod statusu: {{ $order->status_id }}
                 </p>
             </article>
         @endforeach

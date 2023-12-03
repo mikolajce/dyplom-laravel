@@ -23,9 +23,6 @@
                     {{ $order->sum_total }}
                 </strong>
             </p>
-            <p>
-                Kod statusu: {{ $order->status_id }}
-            </p>
         </article>
         @endforeach
     @endif

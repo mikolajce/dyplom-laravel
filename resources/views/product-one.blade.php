@@ -3,7 +3,7 @@
 @section('body')
 <div>
     <h1>
-        Produkt
+        Informacje o produkcie
     </h1>
     <article>
         <h1>

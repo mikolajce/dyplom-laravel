@@ -3,7 +3,7 @@
 @section('body')
 <div>
     <h1>
-        Lista wszystkich użytkowników
+        Lista wszystkich klientów
     </h1>
 </div>
 <div>
@@ -14,12 +14,9 @@
             <article>
                 <h1>
                     <a href="/clients/{{ $client->id }}">
-                        {{ $client->name }} {{ $client->surname }}
+                        {{ $client->name }} {{ $client->surname }}, #{{ $client->id }}
                     </a>
                 </h1>
-                <p>
-                    Adres: <strong>{{ $client->address }}</strong>
-                </p>
             </article>
         @endforeach
     @endif

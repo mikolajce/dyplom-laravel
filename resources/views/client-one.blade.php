@@ -3,7 +3,7 @@
 @section('body')
 <div>
     <h1>
-        Klient
+        Informacje o kliencie
     </h1>
     <article>
         <h1>

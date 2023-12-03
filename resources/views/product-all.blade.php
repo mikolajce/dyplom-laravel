@@ -18,13 +18,10 @@
                         </a>
                     </h1>
                     <p>
-                        Producent:
+                        Cena:
                         <strong>
-                            {{ $product->manufacturer }}
+                            {{ $product->price }} zł
                         </strong>
-                    </p>
-                    <p>
-                        Cena: {{ $product->price }} zł
                     </p>
                 </article>
             @endforeach

@@ -2,6 +2,9 @@
 
 namespace Tests\Unit;
 
+use App\Models\Client;
+use App\Models\Order;
+use App\Models\Status;
 use PHPUnit\Framework\TestCase;
 
 class ExampleTest extends TestCase

@@ -24,29 +24,35 @@ class DatabaseSeeder extends Seeder
     ];
 
     private array $descs = [
-        'This order has not yet been paid or is pending authorization.',
-        'This order has been paid for and is now being processed and prepared for shipment.',
-        'This order has been paid for and is now being shipped to the customer.',
-        'This order has been paid for and fully delivered to the customer.'
+        'Zamówienie nie zostało opłacone lub sfinalizowane.',
+        'Zamówienie zostało opłacone i jest przetwarzane przez system.',
+        'Zamówienie jest w drodze do klienta.',
+        'Zamówienie zostało opłacone i dostarczone.'
     ];
 
     private array $codes = [
-        'Pending',
-        'Processing',
-        'Shipped',
-        'Delivered'
+        'Oczekujące',
+        'Przetwarzane',
+        'Wysłane',
+        'Dostarczone'
     ];
+
+    private float $start;
 
     public function run(): void
     {
         // Disabling foreign key checks, allowing seeding related tables
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
+        $this->start = microtime(true);
+
         $this->generateStatuses();
         $this->generateProducts(500);
         $this->generateClients(50);
         $this->generateOrders(100);
         $this->generateCartItems(200);
+
+        var_dump(microtime(true) - $this->start);
 
         // Enabling foreign key checks back to default settings
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
@@ -62,6 +68,7 @@ class DatabaseSeeder extends Seeder
                 'description' => $this->descs[$i]
             ]);
         }
+        var_dump('statuses: done at '.microtime(true) - $this->start);
     }
 
     private function generateProducts(int $quantity = 1): void
@@ -73,6 +80,7 @@ class DatabaseSeeder extends Seeder
                 'manufacturer' => $companies[array_rand($companies)]
             ]);
         }
+        var_dump('products: done at '.microtime(true) - $this->start);
     }
 
     private function generateClients(int $quantity = 1): void
@@ -87,6 +95,8 @@ class DatabaseSeeder extends Seeder
         $me->surname = 'Ciesliczka';
         $me->address = 'ul. Nowa 3, Tarn. Góry';
         $me->save();
+
+        var_dump('clients: done at '.microtime(true) - $this->start);
     }
 
     private function generateOrders(int $quantity = 1): void
@@ -99,6 +109,7 @@ class DatabaseSeeder extends Seeder
                 'sum_total' => round(random_int(0,10000) / random_int(1, 100), 2)
             ]);
         }
+        var_dump('orders: done at '.microtime(true) - $this->start);
     }
 
     private function generateCartItems(int $quantity = 1): void
@@ -110,6 +121,7 @@ class DatabaseSeeder extends Seeder
                 'product_id' => Product::inRandomOrder()->first()->id
             ]);
         }
+        var_dump('carts: done at '.microtime(true) - $this->start);
     }
 
 }

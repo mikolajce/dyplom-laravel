@@ -21,5 +21,4 @@ class Client extends Model
             Order::class
         );
     }
-
 }

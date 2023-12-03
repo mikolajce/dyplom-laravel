@@ -25,9 +25,23 @@
                 </a>
             </p>
             <p>
+                <strong>
+                    <a href="/products/{{ $product->id }}">
+                        Losowy produkt
+                    </a>
+                </strong>
+            </p>
+            <p>
                 <a href="/clients">
                     Wszyscy użytkownicy
                 </a>
+            </p>
+            <p>
+                <strong>
+                    <a href="/clients/{{ $clientid }}">
+                        Losowy użytkownik
+                    </a>
+                </strong>
             </p>
             <p>
                 <a href="/orders">
@@ -35,9 +49,23 @@
                 </a>
             </p>
             <p>
+                <strong>
+                    <a href="/orders/{{ $orderid }}">
+                        Losowe zamówienie
+                    </a>
+                </strong>
+            </p>
+            <p>
                 <a href="/orders/status/2">
                     Przetwarzane zamówienia
                 </a>
+            </p>
+            <p>
+                <strong>
+                    <a href="/orders/status/4">
+                        Zakończone zamówienia
+                    </a>
+                </strong>
             </p>
         </article>
         <article>

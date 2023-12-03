@@ -3,6 +3,9 @@
 namespace Tests\Feature;
 
 // use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Models\Client;
+use App\Models\Order;
+use App\Models\Status;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase

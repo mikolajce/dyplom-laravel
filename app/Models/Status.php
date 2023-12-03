@@ -15,7 +15,7 @@ class Status extends Model
 
     public $timestamps = false;
 
-    public function order()
+    public function orders()
     {
         return $this->belongsToMany(
             Order::class
